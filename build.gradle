@@ -15,8 +15,8 @@ repositories {
 }
 sonarqube {
     properties {
-        property "sonar.projectKey", "your_project_key"
-        property "sonar.organization", "your_organization"
+        property "sonar.projectKey", "ci_gitlab"
+        property "sonar.organization", "SonarQube"
         property "sonar.host.url", "http://localhost:9000"  
     }
 }
