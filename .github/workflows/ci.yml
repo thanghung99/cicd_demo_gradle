@@ -14,7 +14,6 @@ on:
 
 jobs:
   build-java:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -25,16 +24,16 @@ jobs:
         with:
           java-version: 1.8
 
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
       - name: SonarQube Scanner setup
         uses: SonarSource/sonarcloud-github-action@v1.1
 
       - name: SonarQube analysis
         env:
-          SONAR_TOKEN: sqp_59ca00fc9834d00a276cfcdd8471f59b04a96ba1
-        run: ./gradlew sonarqube -Dsonar.login=sqp_59ca00fc9834d00a276cfcdd8471f59b04a96ba1
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
       - name: Build with Gradle
         run: ./gradlew build
