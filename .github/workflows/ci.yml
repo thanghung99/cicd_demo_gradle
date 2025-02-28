@@ -30,8 +30,8 @@ jobs:
 
       - name: SonarQube analysis
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: sqp_59ca00fc9834d00a276cfcdd8471f59b04a96ba1
+        run: ./gradlew sonarqube -Dsonar.login=sqp_59ca00fc9834d00a276cfcdd8471f59b04a96ba1
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
